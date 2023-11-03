@@ -285,6 +285,7 @@ class ModelShoes
     public function getExcel() {
         $query = "SELECT * FROM bill
           JOIN users ON bill.id_user = users.id_user
+          JOIN product ON bill.id_product = product.id_product
           WHERE bill.id_bill = '{$_GET['id']}'";
         $result = mysqli_query($this->db, $query);
 

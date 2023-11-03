@@ -278,47 +278,51 @@ class ControllerShoes
         $spreadsheet->setActiveSheetIndex(0);
         $spreadsheet->getActiveSheet()->setTitle('thông tin mua hàng');
 
-        $spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(15);
-        $spreadsheet->getActiveSheet()->getColumnDimension('B')->setWidth(20);
-        $spreadsheet->getActiveSheet()->getColumnDimension('C')->setWidth(15);
-        $spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth(30);
-        $spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth(20);
+        $spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(65);
+        $spreadsheet->getActiveSheet()->getColumnDimension('B')->setWidth(15);
+        $spreadsheet->getActiveSheet()->getColumnDimension('C')->setWidth(20);
+        $spreadsheet->getActiveSheet()->getColumnDimension('D')->setWidth(15);
+        $spreadsheet->getActiveSheet()->getColumnDimension('E')->setWidth(30);
         $spreadsheet->getActiveSheet()->getColumnDimension('F')->setWidth(20);
-        $spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth(15);
-        $spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth(70);
-        $spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth(20);
-        $spreadsheet->getActiveSheet()->getColumnDimension('J')->setWidth(15);
-        $spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth(20);
+        $spreadsheet->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+        $spreadsheet->getActiveSheet()->getColumnDimension('H')->setWidth(15);
+        $spreadsheet->getActiveSheet()->getColumnDimension('I')->setWidth(70);
+        $spreadsheet->getActiveSheet()->getColumnDimension('J')->setWidth(30);
+        $spreadsheet->getActiveSheet()->getColumnDimension('K')->setWidth(15);
+        $spreadsheet->getActiveSheet()->getColumnDimension('L')->setWidth(20);
 
-        $spreadsheet->getActiveSheet()->setCellValue('A1', 'name');
-        $spreadsheet->getActiveSheet()->setCellValue('B1', 'email');
-        $spreadsheet->getActiveSheet()->setCellValue('C1', 'phone');
-        $spreadsheet->getActiveSheet()->setCellValue('D1', 'address');
+        $spreadsheet->getActiveSheet()->setCellValue('A1','name product');
+        $spreadsheet->getActiveSheet()->setCellValue('B1', 'name');
+        $spreadsheet->getActiveSheet()->setCellValue('C1', 'email');
+        $spreadsheet->getActiveSheet()->setCellValue('D1', 'phone');
+        $spreadsheet->getActiveSheet()->setCellValue('E1', 'address');
 
-        $spreadsheet->getActiveSheet()->setCellValue('E1', 'Company name');
-        $spreadsheet->getActiveSheet()->setCellValue('F1', 'Company email');
-        $spreadsheet->getActiveSheet()->setCellValue('G1', 'Company SDT');
-        $spreadsheet->getActiveSheet()->setCellValue('H1', 'Company address');
+        $spreadsheet->getActiveSheet()->setCellValue('F1', 'Company name');
+        $spreadsheet->getActiveSheet()->setCellValue('G1', 'Company email');
+        $spreadsheet->getActiveSheet()->setCellValue('H1', 'Company SDT');
+        $spreadsheet->getActiveSheet()->setCellValue('I1', 'Company address');
 
-        $spreadsheet->getActiveSheet()->setCellValue('I1', 'payment_method');
-        $spreadsheet->getActiveSheet()->setCellValue('J1', 'total');
-        $spreadsheet->getActiveSheet()->setCellValue('K1','created' );
+        $spreadsheet->getActiveSheet()->setCellValue('J1', 'payment_method');
+        $spreadsheet->getActiveSheet()->setCellValue('K1', 'total');
+        $spreadsheet->getActiveSheet()->setCellValue('L1','created' );
+        
         
         $numRow = 2;
         foreach ($result as $row) {
-            $spreadsheet->getActiveSheet()->setCellValue('A' . $numRow, $row['name']);
-            $spreadsheet->getActiveSheet()->setCellValue('B' . $numRow, $row['email']);
-            $spreadsheet->getActiveSheet()->setCellValue('C' . $numRow, $row['phone']);
-            $spreadsheet->getActiveSheet()->setCellValue('D' . $numRow, $row['address']);
+            $spreadsheet->getActiveSheet()->setCellValue('A' . $numRow, $row['name_product']);
+            $spreadsheet->getActiveSheet()->setCellValue('B' . $numRow, $row['name']);
+            $spreadsheet->getActiveSheet()->setCellValue('C' . $numRow, $row['email']);
+            $spreadsheet->getActiveSheet()->setCellValue('D' . $numRow, $row['phone']);
+            $spreadsheet->getActiveSheet()->setCellValue('E' . $numRow, $row['address']);
 
-            $spreadsheet->getActiveSheet()->setCellValue('E' . $numRow, 'BHT');
-            $spreadsheet->getActiveSheet()->setCellValue('F' . $numRow, 'BHT@gmail.com');
-            $spreadsheet->getActiveSheet()->setCellValue('G' . $numRow, '0948023888');
-            $spreadsheet->getActiveSheet()->setCellValue('H' . $numRow, 'Số nhà 99, đường quang vinh, P.quang vinh, TP.thái nguyên, Thái nguyên');
+            $spreadsheet->getActiveSheet()->setCellValue('F' . $numRow, 'BHT');
+            $spreadsheet->getActiveSheet()->setCellValue('G' . $numRow, 'BHT@gmail.com');
+            $spreadsheet->getActiveSheet()->setCellValue('H' . $numRow, '0948023888');
+            $spreadsheet->getActiveSheet()->setCellValue('I' . $numRow, 'Số nhà 99, đường quang vinh, P.quang vinh, TP.thái nguyên, Thái nguyên');
 
-            $spreadsheet->getActiveSheet()->setCellValue('I' . $numRow, $row['payment_method']);
-            $spreadsheet->getActiveSheet()->setCellValue('J' . $numRow, $row['total']);
-            $spreadsheet->getActiveSheet()->setCellValue('K' . $numRow, $row['created']);
+            $spreadsheet->getActiveSheet()->setCellValue('J' . $numRow, $row['payment_method']);
+            $spreadsheet->getActiveSheet()->setCellValue('K' . $numRow, $row['total']);
+            $spreadsheet->getActiveSheet()->setCellValue('L' . $numRow, $row['created']);
 
             $numRow++;
         }
