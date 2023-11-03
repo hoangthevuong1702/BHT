@@ -1,0 +1,7 @@
+{
+    "name": "vendor/bht",
+    "description": "excel",
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.0"
+    }
+}
